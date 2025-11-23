@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameVerse - Tu Catálogo de Videojuegos</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header estilo Crazy Games -->
+    <header class="header">
+      <div class="header-container">
+        <div class="logo-section">
+          <div class="logo">
+            <span class="logo-icon">🎮</span>
+            <span class="logo-text">GameVerse</span>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#inicio" class="nav-link active">Inicio</a>
+          <a href="#categorias" class="nav-link">Categorías</a>
+          <a href="#juegos" class="nav-link">Todos los Juegos</a>
+          <a href="#nuevos" class="nav-link">Nuevos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="theme-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section estilo banner grande -->
+    <section id="inicio" class="hero-banner">
+      <div class="hero-content">
+        <h1 class="hero-title">Descubre Mundos Extraordinarios</h1>
+        <p class="hero-subtitle">
+          Explora nuestro catálogo de videojuegos y encuentra tu próxima
+          aventura
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Juegos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Categorías</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Disponible</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-gradient"></div>
+    </section>
+
+    <!-- Sección de Categorías Populares -->
+    <section class="categories-section">
+      <div class="container">
+        <h2 class="section-title">Categorías Populares</h2>
+        <div class="categories-grid">
+          <div class="category-card" data-category="accion">
+            <div
+              class="category-icon"
+              style="background: linear-gradient(135deg, #ff6b6b, #ee5a24)"
+            >
+              <i class="fas fa-fire"></i>
+            </div>
+            <h3>Acción</h3>
+            <span class="game-count">125 juegos</span>
+          </div>
+
+          <div class="category-card" data-category="aventura">
+            <div
+              class="category-icon"
+              style="background: linear-gradient(135deg, #74b9ff, #0984e3)"
+            >
+              <i class="fas fa-mountain"></i>
+            </div>
+            <h3>Aventura</h3>
+            <span class="game-count">89 juegos</span>
+          </div>
+
+          <div class="category-card" data-category="deportes">
+            <div
+              class="category-icon"
+              style="background: linear-gradient(135deg, #55efc4, #00b894)"
+            >
+              <i class="fas fa-running"></i>
+            </div>
+            <h3>Deportes</h3>
+            <span class="game-count">67 juegos</span>
+          </div>
+
+          <div class="category-card" data-category="terror">
+            <div
+              class="category-icon"
+              style="background: linear-gradient(135deg, #a29bfe, #6c5ce7)"
+            >
+              <i class="fas fa-ghost"></i>
+            </div>
+            <h3>Terror</h3>
+            <span class="game-count">42 juegos</span>
+          </div>
+
+          <div class="category-card" data-category="estrategia">
+            <div
+              class="category-icon"
+              style="background: linear-gradient(135deg, #fd79a8, #e84393)"
+            >
+              <i class="fas fa-chess"></i>
+            </div>
+            <h3>Estrategia</h3>
+            <span class="game-count">58 juegos</span>
+          </div>
+
+          <div class="category-card" data-category="carreras">
+            <div
+              class="category-icon"
+              style="background: linear-gradient(135deg, #fdcb6e, #e17055)"
+            >
+              <i class="fas fa-car"></i>
+            </div>
+            <h3>Carreras</h3>
+            <span class="game-count">34 juegos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Juegos Destacados -->
+    <section id="nuevos" class="featured-games">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Juegos Destacados</h2>
+          <a href="#juegos" class="view-all"
+            >Ver todos <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="games-grid" id="featured-games">
+          <!-- Juegos destacados se cargarán aquí -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Todos los Juegos con Filtros -->
+    <section id="juegos" class="all-games-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Todos los Juegos</h2>
+          <div class="sort-options">
+            <select class="sort-select">
+              <option>Popularidad</option>
+              <option>Nuevos primero</option>
+              <option>A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filters-bar">
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="accion">Acción</button>
+            <button class="filter-btn" data-filter="aventura">Aventura</button>
+            <button class="filter-btn" data-filter="deportes">Deportes</button>
+            <button class="filter-btn" data-filter="terror">Terror</button>
+            <button class="filter-btn" data-filter="estrategia">
+              Estrategia
+            </button>
+          </div>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Buscar juegos..."
+              class="search-input"
+            />
+          </div>
+        </div>
+
+        <div class="games-grid-large" id="all-games-container">
+          <!-- Todos los juegos se cargarán aquí -->
+        </div>
+
+        <div class="load-more-container">
+          <button class="load-more-btn" id="load-more">
+            Cargar más juegos
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <span class="logo-icon">🎮</span>
+              <span class="logo-text">GameVerse</span>
+            </div>
+            <p class="footer-description">
+              Tu catálogo digital de videojuegos. Descubre, explora y disfruta.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Equipo</h4>
+            <ul class="footer-links">
+              <li>Sergio Abel González Amarilla</li>
+              <li>Esteban Mauricio Parisi Quiñonez</li>
+              <li>Milagros Guadalupe Taboada Villalba</li>
+              <li>Lis Adriana Vera Britez</li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Universidad</h4>
+            <ul class="footer-links">
+              <li>Universidad Autónoma de Asunción</li>
+              <li>Facultad de Ciencias y Tecnología</li>
+              <li>Introducción al Diseño Web</li>
+              <li>Lic. Blanca Duarte</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 GameVerse. Proyecto Universitario. Todos los derechos
+            reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
