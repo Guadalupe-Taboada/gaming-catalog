@@ -1,4 +1,3 @@
-/* Variables y Reset */
 :root {
   --primary: #667eea;
   --primary-dark: #5a6fd8;
@@ -37,8 +36,6 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
-/* Header estilo Crazy Games */
 .header {
   background: var(--white);
   box-shadow: var(--shadow);

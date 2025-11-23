@@ -1,4 +1,4 @@
-// Datos de videojuegos más extensos
+// Datos de videojuegos más extensos con enlaces
 const videojuegos = [
   {
     id: 1,
@@ -8,6 +8,7 @@ const videojuegos = [
     rating: 4,
     imagen: "🔫",
     destacado: true,
+    enlace: "https://store.steampowered.com/agecheck/app/1091500/",
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const videojuegos = [
     rating: 5,
     imagen: "🛡️",
     destacado: true,
+    enlace: "https://zelda.nintendo.com/",
   },
   {
     id: 3,
@@ -26,6 +28,8 @@ const videojuegos = [
     rating: 4,
     imagen: "⚽",
     destacado: true,
+    enlace:
+      "https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile&hl=es_PY",
   },
   {
     id: 4,
@@ -35,6 +39,7 @@ const videojuegos = [
     rating: 5,
     imagen: "🧟",
     destacado: true,
+    enlace: "https://store.steampowered.com/app/1196590/Resident_Evil_Village/",
   },
   {
     id: 5,
@@ -44,6 +49,7 @@ const videojuegos = [
     rating: 4,
     imagen: "🏰",
     destacado: false,
+    enlace: "https://www.ageofempires.com/games/age-of-empires-iv/",
   },
   {
     id: 6,
@@ -53,6 +59,7 @@ const videojuegos = [
     rating: 5,
     imagen: "🏎️",
     destacado: false,
+    enlace: "https://forza-horizon-5.softonic.com/",
   },
   {
     id: 7,
@@ -62,6 +69,7 @@ const videojuegos = [
     rating: 4,
     imagen: "🎯",
     destacado: false,
+    enlace: "https://www.callofduty.com/es/warzone",
   },
   {
     id: 8,
@@ -71,10 +79,34 @@ const videojuegos = [
     rating: 5,
     imagen: "⛏️",
     destacado: true,
+    enlace: "https://www.minecraft.net/es-es",
   },
 ];
 
-// Función para mostrar juegos destacados
+// Función para crear tarjeta de juego CON ENLACE
+function crearGameCard(juego) {
+  const gameCard = document.createElement("div");
+  gameCard.className = "game-card";
+  gameCard.innerHTML = `
+    <a href="${juego.enlace}" target="_blank" class="game-link">
+      <div class="game-image">${juego.imagen}</div>
+      <div class="game-info">
+        <h3 class="game-title">${juego.nombre}</h3>
+        <p class="game-description">${juego.descripcion}</p>
+        <div class="game-meta">
+          <span class="game-category">${
+            juego.categoria.charAt(0).toUpperCase() + juego.categoria.slice(1)
+          }</span>
+          <span class="game-rating">${"★".repeat(juego.rating)}${"☆".repeat(
+    5 - juego.rating
+  )}</span>
+        </div>
+      </div>
+    </a>
+  `;
+  return gameCard;
+}
+
 function mostrarJuegosDestacados() {
   const container = document.getElementById("featured-games");
   const destacados = videojuegos.filter((juego) => juego.destacado);
@@ -86,7 +118,6 @@ function mostrarJuegosDestacados() {
   });
 }
 
-// Función para mostrar todos los juegos
 function mostrarTodosLosJuegos(juegos = videojuegos) {
   const container = document.getElementById("all-games-container");
   container.innerHTML = "";
@@ -97,32 +128,7 @@ function mostrarTodosLosJuegos(juegos = videojuegos) {
   });
 }
 
-// Función para crear tarjeta de juego
-function crearGameCard(juego) {
-  const gameCard = document.createElement("div");
-  gameCard.className = "game-card";
-  gameCard.innerHTML = `
-        <div class="game-image">${juego.imagen}</div>
-        <div class="game-info">
-            <h3 class="game-title">${juego.nombre}</h3>
-            <p class="game-description">${juego.descripcion}</p>
-            <div class="game-meta">
-                <span class="game-category">${
-                  juego.categoria.charAt(0).toUpperCase() +
-                  juego.categoria.slice(1)
-                }</span>
-                <span class="game-rating">${"★".repeat(
-                  juego.rating
-                )}${"☆".repeat(5 - juego.rating)}</span>
-            </div>
-        </div>
-    `;
-  return gameCard;
-}
-
-// Función para filtrar juegos
 function filtrarJuegos(categoria) {
-  // Actualizar botones activos
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.classList.remove("active");
   });
@@ -138,7 +144,6 @@ function filtrarJuegos(categoria) {
   }
 }
 
-// Función para buscar juegos
 function buscarJuegos(termino) {
   const juegosFiltrados = videojuegos.filter(
     (juego) =>
@@ -153,20 +158,17 @@ document.addEventListener("DOMContentLoaded", function () {
   mostrarJuegosDestacados();
   mostrarTodosLosJuegos();
 
-  // Event listeners para filtros
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       filtrarJuegos(this.dataset.filter);
     });
   });
 
-  // Event listener para búsqueda
   const searchInput = document.querySelector(".search-input");
   searchInput.addEventListener("input", function () {
     buscarJuegos(this.value);
   });
 
-  // Event listener para categorías
   document.querySelectorAll(".category-card").forEach((card) => {
     card.addEventListener("click", function () {
       const categoria = this.dataset.category;
